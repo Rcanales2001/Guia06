@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     });
                                 } else {
+                                    //ok
                                     Log.e("MainActivity", "Error al re-autenticar al usuario.", task.getException());
                                     Toast.makeText(getApplicationContext(), "Re-autenticación fallida. Intenta cerrar sesión e iniciar de nuevo.", Toast.LENGTH_LONG).show();
                                 }
