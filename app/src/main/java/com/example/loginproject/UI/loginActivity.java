@@ -46,6 +46,7 @@ public class loginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     //Agregar cliente de inicio de sesión de Google
     private GoogleSignInClient mGoogleSignInClient;
+    //@hotmail.com
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -142,16 +143,20 @@ public class loginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    // Get the signed-in user's email address
-                    String email = mAuth.getCurrentUser().getEmail();
-                    checkIfEmailExists(email);
+                    // Si el inicio de sesión es exitoso, simplemente redirige al usuario a la MainActivity
+                    Log.d(TAG, "signInWithCredential:success");
+                    Intent dashboardActivity = new Intent(loginActivity.this, MainActivity.class);
+                    startActivity(dashboardActivity);
+                    loginActivity.this.finish();
                 } else {
-                    // If sign in fails, display a message to the user.
+                    // Si el inicio de sesión falla, muestra un mensaje
                     Log.w(TAG, "signInWithCredential:failure", task.getException());
+                    Toast.makeText(loginActivity.this, "Autenticación fallida", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
     private void checkIfEmailExists(String email) {
         mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
             @Override
