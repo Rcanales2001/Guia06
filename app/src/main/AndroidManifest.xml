@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".TODOApplication"
         android:allowBackup="true"
@@ -13,6 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginProject"
         tools:targetApi="31">
+        <activity
+            android:name=".UI.MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".UI.DetailBudget"
+            android:exported="false" />
+        <activity
+            android:name=".UI.AddBudget"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ComprasD"
+            android:exported="false" />
         <activity
             android:name=".UI.registerActivity"
             android:exported="false" />
